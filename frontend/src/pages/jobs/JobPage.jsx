@@ -1,30 +1,24 @@
-import { useLoaderData } from "react-router-dom";
-import { FaArrowLeft, FaMapMarker, FaDollarSign } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import Spinner from "../components/Spinner";
+import { useLoaderData, useNavigate, Link } from "react-router-dom";
+import { FaArrowLeft, FaMapMarker, FaDollarSign, FaEdit, FaTrash } from 'react-icons/fa';
+import { toast } from "react-toastify";
 
-const JobPage = () => {
-    // const [job, setJob] = useState({});
-    // const [loading, setLoading] = useState(true);
+import Spinner from "../../components/Spinner";
+
+const JobPage = ({deleteJob}) => {
     const job = useLoaderData();
     const isLoading = !job;
 
-    // useEffect(() => {
-    //     try {
-    //         const fetchJob = async () => {
-    //             const res = await fetch(`/api/jobs/${id}`);
-    //             const data = await res.json();
-    //             console.log(data);
-    //             setJob(data);
-    //         }
+    const navigate = useNavigate();
 
-    //         fetchJob();
-    //     } catch (error) {
-    //         console.log(`error fetching job with id ${id}`, error);
-    //     } finally {
-    //         setLoading(false);
-    //     }
-    // }, [id]);
+    const handleDelete = (jobId) => {
+        // TODO: add dialog box to get confirmation
+        const status = deleteJob(jobId);
+        console.log(status);
+
+        toast.success('Deleted Successfully');
+        // TODO: check response status
+        return navigate('/jobs');
+    }
 
     return (
         <>
@@ -93,17 +87,17 @@ const JobPage = () => {
                                 </div>
 
                                 <div className='bg-white p-6 rounded-lg shadow-md mt-6'>
-                                    <h3 className='text-xl font-bold mb-6'>Manage Job</h3>
                                     <Link
-                                        to={`/edit-job/${job.id}`}
+                                        to={`jobs/edit/${job.id}`}
                                         className='bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block'
                                     >
-                                        Edit
+                                        <div className="flex justify-center"><FaEdit className="mt-1"/><span className="ml-2 mt-0.5">Edit</span></div>
                                     </Link>
                                     <button
                                         className='bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block'
+                                        onClick={()=> handleDelete(job.id)}
                                     >
-                                        Delete
+                                        <div className="flex justify-center"><FaTrash className="mt-1"/><span className="ml-2 mt-0.5">Delete</span></div>
                                     </button>
                                 </div>
                             </aside>
@@ -116,6 +110,7 @@ const JobPage = () => {
 }
 
 const jobLoader = async ({ params }) => {
+    // TODO: replace with axios
     const res = await fetch(`/api/jobs/${params.id}`);
     const data = await res.json();
     return data;
