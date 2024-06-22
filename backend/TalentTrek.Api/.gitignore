@@ -1,0 +1,5 @@
+bin/
+Migrations/
+obj/
+logs/
+appsettings.Development.json
