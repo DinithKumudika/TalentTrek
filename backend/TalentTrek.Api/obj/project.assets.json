@@ -465,11 +465,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dinit\\Documents\\Development\\TalentTrek\\backend\\TalenTrek.api\\TalenTrek.api.csproj",
-      "projectName": "TalenTrek.api",
-      "projectPath": "C:\\Users\\dinit\\Documents\\Development\\TalentTrek\\backend\\TalenTrek.api\\TalenTrek.api.csproj",
+      "projectUniqueName": "C:\\Users\\dinit\\Documents\\Development\\TalentTrek\\backend\\TalentTrek.Api\\TalentTrek.Api.csproj",
+      "projectName": "TalentTrek.Api",
+      "projectPath": "C:\\Users\\dinit\\Documents\\Development\\TalentTrek\\backend\\TalentTrek.Api\\TalentTrek.Api.csproj",
       "packagesPath": "C:\\Users\\dinit\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dinit\\Documents\\Development\\TalentTrek\\backend\\TalenTrek.api\\obj\\",
+      "outputPath": "C:\\Users\\dinit\\Documents\\Development\\TalentTrek\\backend\\TalentTrek.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dinit\\AppData\\Roaming\\NuGet\\NuGet.Config"

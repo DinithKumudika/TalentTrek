@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Rse+o3+deKg=",
+  "dgSpecHash": "qrw/RG3fqnk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\dinit\\Documents\\Development\\TalentTrek\\backend\\TalenTrek.api\\TalenTrek.api.csproj",
+  "projectFilePath": "C:\\Users\\dinit\\Documents\\Development\\TalentTrek\\backend\\TalentTrek.Api\\TalentTrek.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dinit\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.6\\microsoft.aspnetcore.openapi.8.0.6.nupkg.sha512",
     "C:\\Users\\dinit\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
