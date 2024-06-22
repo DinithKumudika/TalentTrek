@@ -55,11 +55,19 @@ const updateJob = async (job) => {
     return res.status;
 }
 
+const registerUser = async (user) => {
+    console.log(user);
+    await new Promise((resolve) => setTimeout(resolve, 8000));
+}
+
 export const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path='/' errorElement={<NotFoundPage />}>
             <Route index element={<HomePage />} />
-            <Route path='sign-in' element={<SignUpPage/>} />
+            <Route
+                path='sign-up'
+                element={<SignUpPage registerUser={registerUser} />}
+            />
             <Route path='jobs' element={<BaseLayout />}>
                 <Route
                     path=''
