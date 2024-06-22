@@ -1,0 +1,6 @@
+@TalenTrek.api_HostAddress = http://localhost:5121
+
+GET {{TalenTrek.api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
