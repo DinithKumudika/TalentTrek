@@ -17,6 +17,8 @@ builder.Services.AddControllers(options => {
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+// Add AutoMapper
+builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddDbContext<DataContext>(options => {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -24,8 +26,8 @@ builder.Services.AddDbContext<DataContext>(options => {
 
 
 // add validators for the dependency injection
-builder.Services.AddValidatorsFromAssemblyContaining<CandidateRegistrationValidator>();
 builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<CandidateSignUpValidator>();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 
