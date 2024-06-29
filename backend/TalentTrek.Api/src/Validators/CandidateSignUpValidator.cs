@@ -1,9 +1,9 @@
 using FluentValidation;
-using TalentTrek.Api.Dto;
+using TalentTrek.Api.Dtos;
 
 namespace TalentTrek.Api.Validators
 {
-    class CandidateSignUpValidator : AbstractValidator<CandidateSignUpRequest>
+    class CandidateSignUpValidator : AbstractValidator<CandidateSignUpRequestDto>
     {
         public CandidateSignUpValidator()
         {

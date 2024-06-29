@@ -7,6 +7,5 @@ public class CandidateSignUpModel
     public required string LastName;
     public required string Email;
     public required string Password;
-    public required string ConfirmPassword;
     public required string ContactNo;
 }

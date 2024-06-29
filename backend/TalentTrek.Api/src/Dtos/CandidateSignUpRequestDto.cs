@@ -1,9 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace TalentTrek.Api.Dto 
+namespace TalentTrek.Api.Dtos 
 {
-    public class CandidateSignUpRequest
+    public class CandidateSignUpRequestDto
     {
         [JsonPropertyName("firstName")]
         [Required]

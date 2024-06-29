@@ -1,6 +1,6 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using TalentTrek.Api.Dto;
+using TalentTrek.Api.Dtos;
 using TalentTrek.Api.Entities;
 using TalentTrek.Api.Models;
 using TalentTrek.Api.Models.Types;
@@ -26,10 +26,10 @@ namespace TalentTrek.Api.Controllers
         // api/auth/register/applicant
         // api/auth/register/employer
         [HttpPost("register/applicant")]
-        public async Task<IActionResult> RegisterCandidate(string userType, [FromBody] CandidateSignUpRequest Candidate)
+        public async Task<IActionResult> RegisterCandidate([FromBody] CandidateSignUpRequestDto candidate)
         {
             var result = await _authService.CreateCandidate(
-                _mapper.Map<CandidateSignUpModel>(Candidate)
+                _mapper.Map<CandidateSignUpModel>(candidate)
             );
             
             return Ok(result);
