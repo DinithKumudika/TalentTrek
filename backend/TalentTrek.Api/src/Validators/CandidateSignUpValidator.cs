@@ -3,7 +3,7 @@ using TalentTrek.Api.Dto;
 
 namespace TalentTrek.Api.Validators
 {
-    class CandidateRegistrationValidator : AbstractValidator<CandidateRegistrationRequest>
+    class CandidateRegistrationValidator : AbstractValidator<CandidateSignUpRequest>
     {
         public CandidateRegistrationValidator()
         {
