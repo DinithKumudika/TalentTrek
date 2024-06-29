@@ -3,9 +3,9 @@ using TalentTrek.Api.Dto;
 
 namespace TalentTrek.Api.Validators
 {
-    class CandidateRegistrationValidator : AbstractValidator<CandidateSignUpRequest>
+    class CandidateSignUpValidator : AbstractValidator<CandidateSignUpRequest>
     {
-        public CandidateRegistrationValidator()
+        public CandidateSignUpValidator()
         {
             RuleFor(candidate => candidate.FirstName)
             .Cascade(CascadeMode.Stop)

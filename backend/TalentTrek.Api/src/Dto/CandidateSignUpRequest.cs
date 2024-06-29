@@ -3,11 +3,8 @@ using System.Text.Json.Serialization;
 
 namespace TalentTrek.Api.Dto 
 {
-    public class CandidateRegistrationRequest
+    public class CandidateSignUpRequest
     {
-        [JsonPropertyName("id")]
-        public string? Id {get; set;}
-
         [JsonPropertyName("firstName")]
         [Required]
         public required string FirstName {get; set;}
@@ -18,18 +15,18 @@ namespace TalentTrek.Api.Dto
 
         [JsonPropertyName("email")]
         [Required]
-        public string? Email {get; set;}
+        public required string Email {get; set;}
 
         [JsonPropertyName("password")]
         [Required]
         [Range(8,30)]
-        public string? Password {get; set;}
+        public required string Password {get; set;}
 
         [JsonPropertyName("confirmPassword")]
         [Required]
-        public string? ConfirmPassword {get; set;}
+        public required string ConfirmPassword {get; set;}
 
         [JsonPropertyName("contactNo")]
-        public string? ContactNo {get; set;}
+        public required string ContactNo {get; set;}
     }
 }

@@ -1,4 +1,5 @@
 using TalentTrek.Api.Data;
+using TalentTrek.Api.Models;
 using TalentTrek.Api.Models.Types;
 using TalentTrek.Api.Services.Interfaces;
 
@@ -14,17 +15,10 @@ namespace TalentTrek.Api.Services{
             _logger = logger;
         }
 
-        public async Task<string> CreateUser(UserType userType, object user)
+        public async Task<string> CreateCandidate(CandidateSignUpModel candidate)
         {
             // TODO: implement the rest of the registration logic
-            switch (userType)
-            {
-                case UserType.Applicant:
-                case UserType.Employer:
-                    return "user is an employer";
-                default:
-                    throw new Exception("Invalid user type");
-            }
+            return "candidate added";
         }
     }
 }

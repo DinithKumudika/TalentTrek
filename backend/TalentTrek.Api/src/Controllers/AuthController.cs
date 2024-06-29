@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using TalentTrek.Api.Dto;
 using TalentTrek.Api.Entities;
@@ -13,21 +14,22 @@ namespace TalentTrek.Api.Controllers
     {
         private readonly ILogger<AuthController> _logger;
         private readonly IAuthService _authService;
+        private readonly IMapper _mapper;
 
-        public AuthController(ILogger<AuthController> logger, IAuthService authService)
+        public AuthController(ILogger<AuthController> logger, IAuthService authService, IMapper mapper)
         {
             _logger = logger;
             _authService = authService;
+            _mapper = mapper;
         }
 
         // api/auth/register/applicant
         // api/auth/register/employer
-        [HttpPost("register/{userType}")]
-        public async Task<IActionResult> AddUser(string userType, [FromBody] CandidateRegistrationRequest request)
+        [HttpPost("register/applicant")]
+        public async Task<IActionResult> RegisterCandidate(string userType, [FromBody] CandidateSignUpRequest Candidate)
         {
-            var result = await _authService.CreateUser(
-                (UserType)Enum.Parse(typeof(UserType), userType), 
-                request
+            var result = await _authService.CreateCandidate(
+                _mapper.Map<CandidateSignUpModel>(Candidate)
             );
             
             return Ok(result);
