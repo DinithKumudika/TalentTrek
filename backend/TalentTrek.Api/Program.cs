@@ -6,6 +6,8 @@ using FluentValidation;
 using TalentTrek.Api.Validators;
 using FluentValidation.AspNetCore;
 using TalentTrek.Api.Filters;
+using TalentTrek.Api.Extensions;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,16 +22,18 @@ builder.Services.AddSwaggerGen();
 // Add AutoMapper
 builder.Services.AddAutoMapper(typeof(Program));
 
-builder.Services.AddDbContext<DataContext>(options => {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
+builder.Services.AddAppServices();
+builder.Services.AddRepositories();
+builder.Services.AddAppConfigs(builder.Configuration);
+builder.Services.AddDatabase(builder.Configuration);
 
+// add Serilog as the default logger
+builder.Logging.ClearProviders();
+builder.Host.AddLogger();
 
 // add validators for the dependency injection
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<CandidateSignUpValidator>();
-
-builder.Services.AddScoped<IAuthService, AuthService>();
 
 // Add healthcheck service
 builder.Services.AddHealthChecks();
@@ -45,6 +49,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseSerilogRequestLogging();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();

@@ -1,4 +1,3 @@
-using System.Security.Cryptography;
 using TalentTrek.Api.Data;
 using TalentTrek.Api.Models;
 using TalentTrek.Api.Services.Interfaces;
