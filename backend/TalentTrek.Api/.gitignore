@@ -1,5 +1,6 @@
-bin/
+[Bb]in/
+[Oo]ut/
+build/
 Migrations/
-obj/
-logs/
+[Oo]bj/
 appsettings.Development.json
